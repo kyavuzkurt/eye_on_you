@@ -1,0 +1,6 @@
+source;share/eye_on_you/hook/pythonpath.ps1
+source;share/eye_on_you/hook/pythonpath.dsv
+source;share/eye_on_you/hook/pythonpath.sh
+source;share/eye_on_you/hook/ament_prefix_path.ps1
+source;share/eye_on_you/hook/ament_prefix_path.dsv
+source;share/eye_on_you/hook/ament_prefix_path.sh

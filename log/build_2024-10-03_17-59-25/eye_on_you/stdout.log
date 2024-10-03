@@ -1,0 +1,31 @@
+running egg_info
+writing ../build/eye_on_you/eye_on_you.egg-info/PKG-INFO
+writing dependency_links to ../build/eye_on_you/eye_on_you.egg-info/dependency_links.txt
+writing entry points to ../build/eye_on_you/eye_on_you.egg-info/entry_points.txt
+writing requirements to ../build/eye_on_you/eye_on_you.egg-info/requires.txt
+writing top-level names to ../build/eye_on_you/eye_on_you.egg-info/top_level.txt
+reading manifest file '../build/eye_on_you/eye_on_you.egg-info/SOURCES.txt'
+writing manifest file '../build/eye_on_you/eye_on_you.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+copying meshes/arm.stl -> /home/kayeka/Projects/eye_on_you/install/eye_on_you/share/eye_on_you/meshes
+copying meshes/base.stl -> /home/kayeka/Projects/eye_on_you/install/eye_on_you/share/eye_on_you/meshes
+copying meshes/home.stl -> /home/kayeka/Projects/eye_on_you/install/eye_on_you/share/eye_on_you/meshes
+copying urdf/robot.urdf -> /home/kayeka/Projects/eye_on_you/install/eye_on_you/share/eye_on_you
+creating /home/kayeka/Projects/eye_on_you/install/eye_on_you/share/eye_on_you/urdf
+copying urdf/robot.urdf -> /home/kayeka/Projects/eye_on_you/install/eye_on_you/share/eye_on_you/urdf
+creating /home/kayeka/Projects/eye_on_you/install/eye_on_you/share/eye_on_you/launch
+copying launch/twoaxis.py -> /home/kayeka/Projects/eye_on_you/install/eye_on_you/share/eye_on_you/launch
+copying launch/simulation.py -> /home/kayeka/Projects/eye_on_you/install/eye_on_you/share/eye_on_you/launch
+running install_egg_info
+Copying ../build/eye_on_you/eye_on_you.egg-info to /home/kayeka/Projects/eye_on_you/install/eye_on_you/lib/python3.10/site-packages/eye_on_you-1.0.0-py3.10.egg-info
+running install_scripts
+Installing camera_node script to /home/kayeka/Projects/eye_on_you/install/eye_on_you/lib/EyeOnYou
+Installing face_detection_node script to /home/kayeka/Projects/eye_on_you/install/eye_on_you/lib/EyeOnYou
+Installing mearm_controller script to /home/kayeka/Projects/eye_on_you/install/eye_on_you/lib/EyeOnYou
+Installing servo_controller script to /home/kayeka/Projects/eye_on_you/install/eye_on_you/lib/EyeOnYou
+Installing simulation_controller script to /home/kayeka/Projects/eye_on_you/install/eye_on_you/lib/EyeOnYou
+writing list of installed files to '/home/kayeka/Projects/eye_on_you/build/eye_on_you/install.log'

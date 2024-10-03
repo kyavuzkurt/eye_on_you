@@ -1,0 +1,63 @@
+<robot name="robot">
+    <link name="map"/>
+    <link name="base">
+        <visual>
+            <geometry>
+                <mesh filename="package://eye_on_you/meshes/base.stl" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://eye_on_you/meshes/base.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="home">
+        <visual>
+                <geometry>
+                    <mesh filename="package://eye_on_you/meshes/home.stl" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://eye_on_you/meshes/home.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="arm">
+        <visual>
+                <geometry>
+                <mesh filename="package://eye_on_you/meshes/arm.stl" />
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://eye_on_you/meshes/arm.stl" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="world_robot_joint" type="fixed">
+        <axis xyz="0 0 1" />
+        <origin xyz="0 0 0"/>
+        <parent link="map"/>
+        <child link="base"/>
+    </joint>
+
+    <joint name="base_home_joint" type="revolute">
+        <axis xyz="0 0 1" />
+        <limit lower="-0.7853" upper="0.7853" effort="1000.0" velocity="0.5"/>
+        <origin xyz="0 0 0.024"/>
+        <parent link="base"/>
+        <child link="home"/>
+    </joint>
+
+    <joint name="home_arm_joint" type="revolute">
+        <axis xyz="0 0 1" />
+        <limit lower="-1.57" upper="1.0" effort="1000.0" velocity="0.5"/>
+        <origin rpy="1.5707 -1.5707 0" xyz="0.014 0 0.029"/>
+        <parent link="home"/>
+        <child link="arm"/>
+    </joint>
+
+</robot>    

@@ -1,9 +1,0 @@
-digraph G {
-"map" -> "base"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
-"base" -> "home"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1727967674.839967\nOldest transform: 1727967669.839835\n"];
-"home" -> "arm"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1727967674.839967\nOldest transform: 1727967669.839835\n"];
-edge [style=invis];
- subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
-"Recorded at time: 1727967674.8479097"[ shape=plaintext ] ;
-}->"map";
-}

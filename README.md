@@ -69,23 +69,7 @@ ros2 launch eye_on_you simulation.py
 
 **Note**: The simulation currently uses the `joint_state_publisher` GUI for control. The bottom joint functions correctly, but the arm joint needs improvement. Contributions to enhance the URDF file are welcome and appreciated.
 
-## Project Roadmap
 
-- Enhance simulation accuracy
-- Implement support for various servo drivers
-- Optimize face tracking algorithms for improved performance
-- Add multi-face tracking capability
-- Develop a user-friendly GUI for easier interaction and control
-
-## Contributing
-
-We welcome contributions to the Eye on You project! If you have ideas for improvements or new features, please feel free to:
-
-1. Fork the repository
-2. Create a new branch for your feature
-3. Commit your changes
-4. Push to your branch
-5. Create a new Pull Request
 
 ## License
 

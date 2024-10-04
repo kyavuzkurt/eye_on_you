@@ -22,7 +22,7 @@ Whether you're interested in robotics, computer vision, or interactive installat
 2. **Clone and Build**:
     - Clone the repository into your ROS2 workspace:
       ```bash
-      git clone https://github.com/kayeka/eye_on_you.git
+      git clone https://github.com/kyavuzkurt/eye_on_you.git
       ```
     - Build the package:
       ```bash

@@ -19,10 +19,12 @@ setup(
         # Install Launch files
         (os.path.join('share', package_name, 'launch'),
             glob('launch/*.py')),
+        # Include RViz configuration file
+        (os.path.join('share', package_name, 'rviz'), ['rviz/robot_view.rviz']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Kayeka',
+    maintainer='Kadir Yavuz Kurt',
     maintainer_email='k.yavuzkurt1@gmail.com',
     description='Simulated Robot That Tracks Faces',
     license='MIT',

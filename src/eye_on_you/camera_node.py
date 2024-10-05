@@ -11,7 +11,7 @@ class CameraNode(Node):
         super().__init__('camera_node')
         self.publisher_ = self.create_publisher(Image, 'camera/image_raw', 10)
         self.timer = self.create_timer(0.1, self.timer_callback)
-        self.cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(0) # Change to your usb camera index if your webcam is not working
         self.br = CvBridge()
 
         if not self.cap.isOpened():

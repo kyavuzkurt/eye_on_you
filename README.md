@@ -22,7 +22,7 @@ Whether you're interested in robotics, computer vision, or interactive installat
 - Arduino Uno
 - Servo Motor x2 (SG90 recommended)
 
-**Note**: While we use SG90 servos, any Arduino-compatible servo should work with the same serial communication. Contributions for servo driver support are welcome and encouraged.
+**Note**: While I use SG90 servos, any Arduino-compatible servo should work with the same serial communication. Since I don't have a servo driver for Arduino, I can't reliably test and support servo drives other than SG90.
 
 ## Installation
 
@@ -42,6 +42,9 @@ git clone https://github.com/kyavuzkurt/eye_on_you.git
 
 # Build the package
 colcon build --packages-select eye_on_you
+
+# Source the workspace
+source install/setup.bash
 ```
 
 ## Usage
@@ -59,6 +62,7 @@ ros2 run eye_on_you camera_node
 ros2 run eye_on_you face_detection_node
 ros2 run eye_on_you servo_controller
 ```
+**Note**: Face detection node is currently using the camera node's video stream. So you need to run the camera node before running the face detection node. If your webcam is not working try configuring camera node to your usb camera index.
 
 
 ## Simulation

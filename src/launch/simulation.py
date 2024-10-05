@@ -12,7 +12,13 @@ def generate_launch_description():
         robot_description_content = infp.read()
 
     return LaunchDescription([
-
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            output='screen',
+            parameters=[{'robot_description': robot_description_content}]
+        ),
         Node(
             package='eye_on_you',
             executable='simulation_controller',

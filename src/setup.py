@@ -33,6 +33,7 @@ setup(
         'console_scripts': [
             'camera_node = eye_on_you.camera_node:main',
             'face_detection_node = eye_on_you.face_detection:main',
+            'face_detection_simulation = eye_on_you.face_detection_simulation:main',
             'mearm_controller = eye_on_you.mearm_controller:main',
             'servo_controller = eye_on_you.servo_controller:main',
             'simulation_controller = eye_on_you.simulation_controller:main'

@@ -17,7 +17,7 @@ class ServoController(Node):
 
         self.subscription = self.create_subscription(
             Float64MultiArray,
-            '/mearm/joint_commands',
+            '/robot/joint_commands',
             self.listener_callback,
             10
         )

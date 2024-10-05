@@ -12,12 +12,32 @@ def generate_launch_description():
         robot_description_content = infp.read()
 
     return LaunchDescription([
-
         Node(
             package='eye_on_you',
-            executable='simulation_controller',
-            name='simulation_controller',
+            executable='camera_node',
+            name='camera_node',
             output='screen'
+        ),
+        Node(
+            package='eye_on_you',
+            executable='face_detection_simulation',
+            name='face_detection_simulation',
+            output='screen'
+        ),
+
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            output='screen',
+            parameters=[{'robot_description': robot_description_content}]
+        ),
+        Node(
+            package='joint_state_publisher',
+            executable='joint_state_publisher',
+            name='joint_state_publisher',
+            output='screen',
+            parameters=[{'source_list': ['/robot/joint_commands_simulation']}]
         ),
         Node(
             package='rviz2',

@@ -2,24 +2,22 @@
 
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, JointState  
 from cv_bridge import CvBridge, CvBridgeError
-from std_msgs.msg import Float64MultiArray
 import cv2
 
-class FaceDetectionNode(Node):
+class FaceDetectionSimulation(Node):
     def __init__(self):
-        super().__init__('face_detection_node')
+        super().__init__('face_detection_simulation')
         self.subscription = self.create_subscription(
             Image,
             'camera/image_raw',
             self.listener_callback,
             10)
-        self.subscription 
         self.br = CvBridge()
         self.face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-        self.publisher_ = self.create_publisher(Float64MultiArray, '/robot/joint_commands', 10)
+        self.publisher_ = self.create_publisher(JointState, '/robot/joint_commands_simulation', 10)
 
     def listener_callback(self, msg):
         try:
@@ -28,7 +26,6 @@ class FaceDetectionNode(Node):
             self.get_logger().error(f'Error converting image: {e}')
             return
 
-        # Flip the image horizontally
         frame = cv2.flip(frame, 1)
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -47,16 +44,28 @@ class FaceDetectionNode(Node):
         normalized_x = face_x / frame_width
         normalized_y = face_y / frame_height
 
-        servo_angle_x = normalized_x * 180
-        servo_angle_y = 45 + (1 - normalized_y) * 135
-        joint_commands = Float64MultiArray(data=[servo_angle_x, servo_angle_y])
+        servo_angle_x = -0.7853 + normalized_x * (0.7853 - (-0.7853))
+        servo_angle_y = -1.57 + normalized_y * (1 - (-1.57))
 
-        self.publisher_.publish(joint_commands)
-        self.get_logger().info(f'Published joint commands: x={joint_commands.data[0]}, y={joint_commands.data[1]}')
+        joint_state = JointState()
+        joint_state.header.stamp = self.get_clock().now().to_msg()
+        joint_state.name = ['base_home_joint', 'home_arm_joint']
+        joint_state.position = [servo_angle_x, servo_angle_y]
+        joint_state.velocity = [0.0, 0.0]  
+        joint_state.effort = [0.0, 0.0]    
+
+        self.publisher_.publish(joint_state)
+        self.get_logger().info(
+            f'Published joint commands:\n'
+            f'Names: {joint_state.name}\n'
+            f'Positions: {joint_state.position}\n'
+            f'Velocities: {joint_state.velocity}\n'
+            f'Efforts: {joint_state.effort}'
+        )
 
 def main(args=None):
     rclpy.init(args=args)
-    node = FaceDetectionNode()
+    node = FaceDetectionSimulation()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()

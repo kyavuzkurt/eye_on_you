@@ -28,13 +28,13 @@
     </link>
     <link name="arm">
         <visual>
-            <origin xyz="14.17 -89.3 99.4" /> 
+            <origin xyz="0 0 0" rpy="0 0 1.57" />  
             <geometry>
                 <mesh filename="package://eye_on_you/meshes/arm.stl" />
             </geometry>
         </visual>
         <collision>
-            <origin xyz="14.17 -89.3 99.4" />  
+            <origin xyz="0 0 0" rpy="0 0 1.57" />  
             <geometry>
                 <mesh filename="package://eye_on_you/meshes/arm.stl" />
             </geometry>
@@ -59,7 +59,7 @@
     <joint name="home_arm_joint" type="revolute">
         <axis xyz="1 0 0" />
         <limit lower="-1.57" upper="1.0" effort="1000.0" velocity="0.5"/>
-        <origin rpy="0 0 0" xyz="-12 57.6 -58.9"/>  
+        <origin xyz="-13.5 26 -18.5"/>  
         <parent link="home"/>
         <child link="arm"/>
     </joint>

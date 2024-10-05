@@ -67,7 +67,7 @@ Launch the simulation environment with:
 ros2 launch eye_on_you simulation.py
 ```
 
-**Note**: The simulation currently uses the `joint_state_publisher` GUI for control. The bottom joint functions correctly, but the arm joint needs improvement. Contributions to enhance the URDF file are welcome and appreciated.
+**Note**: The simulation currently uses the `joint_state_publisher` GUI for control. Still working on subscribing to the camera topic and displaying 1-1 model with the physical setup.
 
 
 

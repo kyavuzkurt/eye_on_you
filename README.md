@@ -60,6 +60,7 @@ ros2 run eye_on_you face_detection_node
 ros2 run eye_on_you servo_controller
 ```
 
+
 ## Simulation
 
 Launch the simulation environment with:
@@ -67,7 +68,7 @@ Launch the simulation environment with:
 ros2 launch eye_on_you simulation.py
 ```
 
-**Note**: The simulation currently uses the `joint_state_publisher` GUI for control. Still working on subscribing to the camera topic and displaying 1-1 model with the physical setup.
+**Note**: Simulation uses another face detection node that publishes joint commands to the simulation instead of the physical robot. So you cannot control the real robot and simulation at the same time.
 
 
 

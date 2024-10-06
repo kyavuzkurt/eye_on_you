@@ -17,14 +17,16 @@ class ServoController(Node):
 
         self.subscription = self.create_subscription(
             Float64MultiArray,
-            '/robot/joint_commands',
+            '/camera/face_detection',
             self.listener_callback,
             10
         )
 
     def listener_callback(self, msg):
-        position_x = int(msg.data[0])
-        position_y = int(msg.data[1])
+        normalised_x = msg.data[0]
+        normalised_y = msg.data[1]
+        position_x = int(normalised_x * 180)
+        position_y = int(45 + (1 - normalised_y) * 135)
         self.send_position('x', position_x)
         self.send_position('y', position_y)
 

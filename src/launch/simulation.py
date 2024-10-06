@@ -20,11 +20,16 @@ def generate_launch_description():
         ),
         Node(
             package='eye_on_you',
-            executable='face_detection_simulation',
-            name='face_detection_simulation',
+            executable='face_detection_node',
+            name='face_detection_node',
             output='screen'
         ),
-
+        Node(
+            package='eye_on_you',
+            executable='simulation_controller',
+            name='simulation_controller',
+            output='screen'
+        ),
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',

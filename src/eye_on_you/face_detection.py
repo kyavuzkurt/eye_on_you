@@ -19,7 +19,8 @@ class FaceDetectionNode(Node):
         self.br = CvBridge()
         self.face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-        self.publisher_ = self.create_publisher(Float64MultiArray, '/robot/joint_commands', 10)
+        self.publisher_ = self.create_publisher(Float64MultiArray, '/camera/face_detection', 10)
+        
 
     def listener_callback(self, msg):
         try:
@@ -47,12 +48,11 @@ class FaceDetectionNode(Node):
         normalized_x = face_x / frame_width
         normalized_y = face_y / frame_height
 
-        servo_angle_x = normalized_x * 180
-        servo_angle_y = 45 + (1 - normalized_y) * 135
-        joint_commands = Float64MultiArray(data=[servo_angle_x, servo_angle_y])
+        joint_commands = Float64MultiArray(data=[normalized_x, normalized_y])
+
 
         self.publisher_.publish(joint_commands)
-        self.get_logger().info(f'Published joint commands: x={joint_commands.data[0]}, y={joint_commands.data[1]}')
+        self.get_logger().info(f'Published normalised face position: x={joint_commands.data[0]}, y={joint_commands.data[1]}')
 
 def main(args=None):
     rclpy.init(args=args)

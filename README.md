@@ -72,9 +72,6 @@ Launch the simulation environment with:
 ros2 launch eye_on_you simulation.py
 ```
 
-**Note**: Simulation uses another face detection node that publishes joint commands to the simulation instead of the physical robot. So you cannot control the real robot and simulation at the same time.
-
-
 
 ## License
 
